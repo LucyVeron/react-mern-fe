@@ -49,6 +49,6 @@ export const {
     setFriends,
     setPosts,
     setPost
-} = auth.slice.actions;
+} = authSlice.actions;
 
 export default authSlice.reducer;
