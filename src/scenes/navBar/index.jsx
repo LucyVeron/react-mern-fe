@@ -1,10 +1,10 @@
-import { Close, Help, Menu, Message, Notifications, Search } from "@mui/icons-material";
-import { IconButton, InputBase, Select, useMediaQuery, useTheme } from "@mui/material";
+import { Close, DarkMode, Help, LightMode, Menu, Message, Notifications, Search } from "@mui/icons-material";
+import { Box, FormControl, IconButton, InputBase, MenuItem, Select, Typography, useMediaQuery, useTheme } from "@mui/material";
 import FlexBetween from "components/FlexBetween";
 import { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { setLogout } from "state";
+import { setLogout, setMode } from "state";
 
 const NavBar = () => {
     const [isMobileMenuToggled, setIsMobileMenuToggled] = useState(false);
@@ -15,7 +15,7 @@ const NavBar = () => {
 
     const theme = useTheme();
     const neutralLight = theme.palette.neutral.light;
-    const dark = theme.palette.dark;
+    const dark = theme.palette.neutral.dark;
     const background = theme.palette.background.default;
     const primaryLight = theme.palette.primary.light;
     const alt = theme.palette.background.alt;
@@ -33,7 +33,7 @@ const NavBar = () => {
                     sx={{
                         "&:hover": {
                             color: primaryLight,
-                            cursor: pointer
+                            cursor: "pointer"
                         }
                     }}
                 >
