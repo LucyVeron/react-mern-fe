@@ -21,7 +21,7 @@ function PostsWidget({ userId, isProfile = false }) {
     }
 
     const getUserPosts = async () => {
-        const response = await fetch(`http://localhost:3001/posts/${userId}`,
+        const response = await fetch(`http://localhost:3001/posts/${userId}/posts`,
             {
                 method: "GET",
                 headers: { Authorization: `Bearer ${token}` }
@@ -54,12 +54,12 @@ function PostsWidget({ userId, isProfile = false }) {
                     userPicturePath,
                     likes,
                     comments
-                }) => {
+                }) => (
                     <PostWidget
                         key={_id}
                         postId={_id}
                         postUserId={userId}
-                        name={`${firstName} ${firstName}`}
+                        name={`${firstName} ${lastName}`}
                         description={description}
                         location={location}
                         picturePath={picturePath}
@@ -67,7 +67,7 @@ function PostsWidget({ userId, isProfile = false }) {
                         likes={likes}
                         comments={comments}
                     />
-                }
+                )
             )}
         </>
     )
